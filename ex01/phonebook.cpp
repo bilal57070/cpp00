@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsafi <bsafi@student.42nice.fr>            +#+  +:+       +#+        */
+/*   By: bsafi <bsafi@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 16:38:59 by bsafi             #+#    #+#             */
-/*   Updated: 2024/09/08 23:05:52 by bsafi            ###   ########.fr       */
+/*   Updated: 2024/09/30 15:27:50 by bsafi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,18 @@ void	Phonebook::add()
 {
 	std::string str;
 
-	if (index == 8)
+	//if (std::cin.eof())
+	//	exit(0);
+	if (index == 7)
 		index = 0;
 	std::cout << "Enter first name : ";
+//	if (std::cin.eof())
+//		exit(0);
 	getline(std::cin, str);
 	while (str.empty())
 	{
+		if (std::cin.eof())
+			exit(0);
 		std::cout << "ENTER FIRST NAME !! : ";
 		getline(std::cin, str);
 	}
@@ -38,6 +44,8 @@ void	Phonebook::add()
 	getline(std::cin, str);
 	while (str.empty())
 	{
+		if (std::cin.eof())
+			exit(0);
 		std::cout << "ENTER SECOND NAME : ";
 		getline(std::cin, str);
 	}
@@ -46,6 +54,8 @@ void	Phonebook::add()
 	getline(std::cin, str);
 	while (str.empty())
 	{
+		if (std::cin.eof())
+			exit(0);
 		std::cout << "ENTER nick NAME : ";
 		getline(std::cin, str);
 	}
@@ -54,6 +64,8 @@ void	Phonebook::add()
 	getline(std::cin, str);
 	while (str.empty() || checknbr(str))
 	{
+		if (std::cin.eof())
+			exit(0);
 		std::cout << "ENTER number : ";
 		getline(std::cin, str);
 	}
@@ -62,6 +74,8 @@ void	Phonebook::add()
 	getline(std::cin, str);
 	while (str.empty())
 	{
+		if (std::cin.eof())
+			exit(0);
 		std::cout << "ENTER darkest secret : ";
 		getline(std::cin, str);
 	}
@@ -82,7 +96,7 @@ void	Phonebook::search()
 	std::string get;
 	int			getnbr;
 	int	i = 0;
-	while (++i <= 8)
+	while (++i <= 7)
 	{
 		fn = ct[i].getfname();
 		if (fn.empty())
@@ -115,6 +129,8 @@ void	Phonebook::search()
 	getline(std::cin, get);
 	while ((checknbr(get)) || get.empty())
 	{
+		if (std::cin.eof())
+			exit(0);
 		std::cout << "ENTER A VALID INDEX :";
 		getline(std::cin, get);
 	}
@@ -123,6 +139,8 @@ void	Phonebook::search()
 	{
 		std::cout << "ENTER A VALID INDEX :";
 		getline(std::cin, get);
+		if (std::cin.eof())
+			exit(0);
 		while ((checknbr(get)))
 		{
 			std::cout << "ENTER A VALID INDEX :";

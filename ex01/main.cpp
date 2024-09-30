@@ -16,8 +16,12 @@ int	main(int ac, char **av)
 		while (1)
 		{
 			getline(std::cin, wrd);
+			if (std::cin.eof())
+				break;
 			if (wrd == "ADD")
 				tel.add();
+			if (std::cin.eof())
+				break;
 			if (wrd == "SEARCH")
 				tel.search();
 			if (wrd == "EXIT")
